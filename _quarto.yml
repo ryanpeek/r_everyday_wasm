@@ -1,0 +1,11 @@
+project:
+  type: website
+output-dir: docs
+
+website:
+  title: "Your Presentation Title"
+site-url: "https://ryanpeek.github.io/r_everyday_wasm"
+
+format:
+  html:
+  theme: default
