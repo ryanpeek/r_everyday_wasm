@@ -3,7 +3,7 @@ project:
 output-dir: docs
 
 website:
-  title: "Your Presentation Title"
+  title: "Testing Wasm"
 site-url: "https://ryanpeek.github.io/r_everyday_wasm"
 
 format:
