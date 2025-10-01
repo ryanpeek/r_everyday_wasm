@@ -1,0 +1,59 @@
+---
+title: A Quarto Live Document
+engine: knitr
+format: live-html
+webr:
+  packages:
+    - dplyr
+    - palmerpenguins
+    - ggplot2
+    - sf
+    - tigris
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{webr}
+#| autorun: true
+123 + 456
+```
+
+
+```{webr}
+head(penguins)
+
+ggplot() +
+  geom_point(data=penguins, aes(x=bill_length_mm, y=bill_depth_mm, fill=species), pch=21)+
+  theme_bw()
+```
+
+```{webr}
+
+starwars |>
+  filter(height < 100) |>
+  select(name, height, mass)
+
+```
+
+```{webr}
+
+csci_url <- "https://raw.githubusercontent.com/SCCWRP/CABW2018_R_training/master/data/cscidat.csv"
+cscidat <- read.csv(csci_url)
+str(cscidat)
+
+latlons <- read.csv(file =  "https://raw.githubusercontent.com/SCCWRP/CABW2018_R_training/master/data/latlon.csv")
+
+glimpse(latlons)
+```
+
+
+```{webr}
+# make sf
+xy_sf <- latlons |> 
+  st_as_sf(coords=c("New_Long", "New_Lat"), crs=4326, remove=FALSE)
+
+xy_sf
+
+plot(xy_sf$geometry)
+```
+
